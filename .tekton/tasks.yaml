@@ -62,10 +62,6 @@ spec:
   description: This task deploys the application to Kubernetes.
   workspaces:
     - name: source
-  tolerations:
-    - key: node.kubernetes.io/disk-pressure
-      operator: Exists
-      effect: NoSchedule
   steps:
     - name: kubectl-deploy
       image: alpine/k8s:1.28.4
