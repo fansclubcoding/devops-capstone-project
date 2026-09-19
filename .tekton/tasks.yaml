@@ -39,8 +39,8 @@ spec:
       default: "python:3.9-slim"
     - name: args
       description: Arguments to pass to flake8
-      type: array
-      default: ["--count", "--max-complexity=10", "--max-line-length=127"]
+      type: string
+      default: "--count --max-complexity=10 --max-line-length=127 service/"
   steps:
     - name: lint
       image: "$(params.image)"
