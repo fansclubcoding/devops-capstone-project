@@ -8,9 +8,9 @@ spec:
     - name: source
   params:
     - name: args
-      description: Arguments to pass to nose
+      description: Arguments to pass to flake8
       type: string
-      default: "-v"
+      default: "--count --max-complexity=10 --max-line-length=127 service/"
   steps:
     - name: nosetests
       image: python:3.9-slim
@@ -52,7 +52,7 @@ spec:
         python -m pip install --upgrade pip
         pip install flake8
         echo "Running flake8..."
-        flake8 $(params.args[*])
+        flake8 $(params.args)
 ---
 apiVersion: tekton.dev/v1beta1
 kind: Task

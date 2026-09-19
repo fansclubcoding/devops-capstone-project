@@ -54,7 +54,7 @@ spec:
         - name: image
           value: "python:3.9-slim"
         - name: args
-          value: ["--count", "--max-complexity=10", "--max-line-length=127", "service/"]
+          value: "--count --max-complexity=10 --max-line-length=127 service/"
       runAfter:
         - clone
 
@@ -86,6 +86,8 @@ spec:
           value: "."
         - name: TLSVERIFY
           value: "false"
+        - name: STORAGE_DRIVER
+          value: "vfs"
       runAfter:
         - tests
 
