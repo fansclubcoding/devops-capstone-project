@@ -1,0 +1,13 @@
+NAME       READY   UP-TO-DATE   AVAILABLE   AGE
+accounts   2/2     2            2           63s
+
+NAME                DESIRED   CURRENT   READY   AGE
+accounts-8bc4b9b7   2         2         2       63s
+
+NAME                      READY   STATUS    RESTARTS   AGE
+accounts-8bc4b9b7-8xczt   1/1     Running   0          62s
+accounts-8bc4b9b7-v6hlq   1/1     Running   0          62s
+
+NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+accounts     ClusterIP   10.43.109.148   <none>        8080/TCP   64s
+kubernetes   ClusterIP   10.43.0.1       <none>        443/TCP    56m

@@ -1,0 +1,6 @@
+IMAGE                            ID             DISK USAGE   CONTENT SIZE   EXTRA
+accounts:latest                  8f9313fe06c8        283MB         63.9MB   U    
+capstone-dev:latest              af8b7042854d        282MB         63.9MB        
+localhost:5000/accounts:latest   8f9313fe06c8        283MB         63.9MB   U    
+python:3.9-slim                  2d97f6910b16        185MB         47.2MB   U    
+registry:2                       a3d8aaa63ed8       37.4MB         10.3MB   U    

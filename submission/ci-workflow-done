@@ -1,0 +1,315 @@
+CI Build workflow run 35450118912 - fanscluboding/devops-capstone-project (branch: main, commit: ceda866)
+
+===== Set up job =====
+Current runner version: '2.337.0'
+Runner name: 'devops-runner'
+Runner group name: 'Default'
+Machine name: 'nantaka-virtual-machine'
+##[group]GITHUB_TOKEN Permissions
+Contents: read
+Metadata: read
+Packages: read
+##[endgroup]
+Secret source: Actions
+Cache mode: write
+Prepare workflow directory
+Prepare all required actions
+Getting action download info
+Download action repository 'actions/checkout@v3' (SHA:a37ce9120846195fa4ece8f58b268e6043cb2f26)
+Complete job name: build
+
+===== Initialize containers =====
+##[group]Checking docker version
+##[command]/usr/bin/docker version --format '{{.Server.APIVersion}}'
+'1.52'
+Docker daemon API version: '1.52'
+##[command]/usr/bin/docker version --format '{{.Client.APIVersion}}'
+'1.52'
+Docker client API version: '1.52'
+##[endgroup]
+##[group]Clean up resources from previous jobs
+##[command]/usr/bin/docker ps --all --quiet --no-trunc --filter "label=1403f9"
+##[command]/usr/bin/docker network prune --force --filter "label=1403f9"
+##[endgroup]
+##[group]Create local container network
+##[command]/usr/bin/docker network create --label 1403f9 github_network_810ae9134f2f4163ab60f6c83b748ed8
+72e28042e7700575f144bae51e825b2bd62e02cfd2c0ace8ea3d0b9343d86630
+##[endgroup]
+##[group]Starting job container
+##[command]/usr/bin/docker pull python:3.9-slim
+3.9-slim: Pulling from library/python
+Digest: sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b
+Status: Image is up to date for python:3.9-slim
+docker.io/library/python:3.9-slim
+##[command]/usr/bin/docker create --name 35d5d9a300e14c84aa65f9ea59f11368_python39slim_4e756a --label 1403f9 --workdir /__w/devops-capstone-project/devops-capstone-project --network github_network_810ae9134f2f4163ab60f6c83b748ed8  -e "HOME=/github/home" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/nantaka/actions-runner-devops/_work":"/__w" -v "/home/nantaka/actions-runner-devops/externals":"/__e":ro -v "/home/nantaka/actions-runner-devops/_work/_temp":"/__w/_temp" -v "/home/nantaka/actions-runner-devops/_work/_actions":"/__w/_actions" -v "/home/nantaka/actions-runner-devops/_work/_tool":"/__w/_tool" -v "/home/nantaka/actions-runner-devops/_work/_temp/_github_home":"/github/home" -v "/home/nantaka/actions-runner-devops/_work/_temp/_github_workflow":"/github/workflow" --entrypoint "tail" python:3.9-slim "-f" "/dev/null"
+790dd2435419a45d8385e6e3f03e60e09dd1c1a796907122552039bb480d1b7a
+##[command]/usr/bin/docker start 790dd2435419a45d8385e6e3f03e60e09dd1c1a796907122552039bb480d1b7a
+790dd2435419a45d8385e6e3f03e60e09dd1c1a796907122552039bb480d1b7a
+##[command]/usr/bin/docker ps --all --filter id=790dd2435419a45d8385e6e3f03e60e09dd1c1a796907122552039bb480d1b7a --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+790dd2435419a45d8385e6e3f03e60e09dd1c1a796907122552039bb480d1b7a Up Less than a second
+##[command]/usr/bin/docker inspect --format "{{range .Config.Env}}{{println .}}{{end}}" 790dd2435419a45d8385e6e3f03e60e09dd1c1a796907122552039bb480d1b7a
+HOME=/github/home
+GITHUB_ACTIONS=true
+CI=true
+PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LANG=C.UTF-8
+GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568
+PYTHON_VERSION=3.9.25
+PYTHON_SHA256=00e07d7c0f2f0cc002432d1ee84d2a40dae404a99303e3f97701c10966c91834
+##[endgroup]
+##[group]Waiting for all services to be ready
+##[endgroup]
+
+===== Checkout =====
+Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+##[group]Run actions/checkout@v3
+with:
+  repository: fansclubcoding/devops-capstone-project
+  token: ***
+  ssh-strict: true
+  persist-credentials: true
+  clean: true
+  sparse-checkout-cone-mode: true
+  fetch-depth: 1
+  fetch-tags: false
+  lfs: false
+  submodules: false
+  set-safe-directory: true
+  allow-unsafe-pr-checkout: false
+##[endgroup]
+##[command]/usr/bin/docker exec  790dd2435419a45d8385e6e3f03e60e09dd1c1a796907122552039bb480d1b7a sh -c "cat /etc/*release | grep ^ID"
+(node:15) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Syncing repository: fansclubcoding/devops-capstone-project
+##[group]Getting Git version info
+Working directory is '/__w/devops-capstone-project/devops-capstone-project'
+##[endgroup]
+Deleting the contents of '/__w/devops-capstone-project/devops-capstone-project'
+The repository will be downloaded using the GitHub REST API
+To create a local Git repository instead, add Git 2.18 or higher to the PATH
+Downloading the archive
+(node:15) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+Writing archive to disk
+Extracting the archive
+[command]/usr/bin/tar xz -C /__w/devops-capstone-project/devops-capstone-project/9b7008e5-0876-4efd-8cd7-4b6350ca5d09 -f /__w/devops-capstone-project/devops-capstone-project/9b7008e5-0876-4efd-8cd7-4b6350ca5d09.tar.gz
+Resolved version fansclubcoding-devops-capstone-project-ceda866
+
+===== Install dependencies =====
+##[group]Run python -m pip install --upgrade pip wheel
+[36;1mpython -m pip install --upgrade pip wheel[0m
+[36;1mpip install -r requirements.txt[0m
+shell: sh -e {0}
+##[endgroup]
+Requirement already satisfied: pip in /usr/local/lib/python3.9/site-packages (23.0.1)
+Collecting pip
+  Downloading pip-26.0.1-py3-none-any.whl (1.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 1.2 MB/s eta 0:00:00
+Requirement already satisfied: wheel in /usr/local/lib/python3.9/site-packages (0.45.1)
+Collecting wheel
+  Downloading wheel-0.48.0-py3-none-any.whl (33 kB)
+Collecting packaging>=24.0
+  Downloading packaging-26.3-py3-none-any.whl (129 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 130.0/130.0 kB 355.9 kB/s eta 0:00:00
+Installing collected packages: pip, packaging, wheel
+  Attempting uninstall: pip
+    Found existing installation: pip 23.0.1
+    Uninstalling pip-23.0.1:
+      Successfully uninstalled pip-23.0.1
+  Attempting uninstall: wheel
+    Found existing installation: wheel 0.45.1
+    Uninstalling wheel-0.45.1:
+      Successfully uninstalled wheel-0.45.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+Successfully installed packaging-26.3 pip-26.0.1 wheel-0.48.0
+Collecting Flask==2.3.3 (from -r requirements.txt (line 1))
+  Downloading flask-2.3.3-py3-none-any.whl.metadata (3.6 kB)
+Collecting Werkzeug==2.3.7 (from -r requirements.txt (line 2))
+  Downloading werkzeug-2.3.7-py3-none-any.whl.metadata (4.1 kB)
+Collecting SQLAlchemy==2.0.23 (from -r requirements.txt (line 3))
+  Downloading SQLAlchemy-2.0.23-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.6 kB)
+Collecting Flask-SQLAlchemy==3.1.1 (from -r requirements.txt (line 4))
+  Downloading flask_sqlalchemy-3.1.1-py3-none-any.whl.metadata (3.4 kB)
+Collecting Flask-Talisman==1.1.0 (from -r requirements.txt (line 5))
+  Downloading flask_talisman-1.1.0-py2.py3-none-any.whl.metadata (18 kB)
+Collecting Flask-Cors==4.0.0 (from -r requirements.txt (line 6))
+  Downloading Flask_Cors-4.0.0-py2.py3-none-any.whl.metadata (5.4 kB)
+Collecting gunicorn==21.2.0 (from -r requirements.txt (line 7))
+  Downloading gunicorn-21.2.0-py3-none-any.whl.metadata (4.1 kB)
+Collecting coverage==7.3.2 (from -r requirements.txt (line 10))
+  Downloading coverage-7.3.2-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.1 kB)
+Collecting factory-boy==3.3.0 (from -r requirements.txt (line 11))
+  Downloading factory_boy-3.3.0-py2.py3-none-any.whl.metadata (15 kB)
+Collecting Faker==20.1.0 (from -r requirements.txt (line 12))
+  Downloading Faker-20.1.0-py3-none-any.whl.metadata (15 kB)
+Collecting nose==1.3.7 (from -r requirements.txt (line 13))
+  Downloading nose-1.3.7-py3-none-any.whl.metadata (1.7 kB)
+Collecting pinocchio==0.4.3 (from -r requirements.txt (line 14))
+  Downloading pinocchio-0.4.3-py3-none-any.whl.metadata (975 bytes)
+Collecting flake8==6.1.0 (from -r requirements.txt (line 17))
+  Downloading flake8-6.1.0-py2.py3-none-any.whl.metadata (3.8 kB)
+Collecting pylint==3.0.3 (from -r requirements.txt (line 18))
+  Downloading pylint-3.0.3-py3-none-any.whl.metadata (12 kB)
+Collecting black==23.12.1 (from -r requirements.txt (line 19))
+  Downloading black-23.12.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (68 kB)
+Collecting Jinja2>=3.1.2 (from Flask==2.3.3->-r requirements.txt (line 1))
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting itsdangerous>=2.1.2 (from Flask==2.3.3->-r requirements.txt (line 1))
+  Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting click>=8.1.3 (from Flask==2.3.3->-r requirements.txt (line 1))
+  Downloading click-8.1.8-py3-none-any.whl.metadata (2.3 kB)
+Collecting blinker>=1.6.2 (from Flask==2.3.3->-r requirements.txt (line 1))
+  Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting importlib-metadata>=3.6.0 (from Flask==2.3.3->-r requirements.txt (line 1))
+  Downloading importlib_metadata-8.7.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting MarkupSafe>=2.1.1 (from Werkzeug==2.3.7->-r requirements.txt (line 2))
+  Downloading markupsafe-3.0.3-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Collecting typing-extensions>=4.2.0 (from SQLAlchemy==2.0.23->-r requirements.txt (line 3))
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting greenlet!=0.4.17 (from SQLAlchemy==2.0.23->-r requirements.txt (line 3))
+  Downloading greenlet-3.2.5-cp39-cp39-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (4.1 kB)
+Requirement already satisfied: packaging in /usr/local/lib/python3.9/site-packages (from gunicorn==21.2.0->-r requirements.txt (line 7)) (26.3)
+Collecting python-dateutil>=2.4 (from Faker==20.1.0->-r requirements.txt (line 12))
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting colorama (from pinocchio==0.4.3->-r requirements.txt (line 14))
+  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting mccabe<0.8.0,>=0.7.0 (from flake8==6.1.0->-r requirements.txt (line 17))
+  Downloading mccabe-0.7.0-py2.py3-none-any.whl.metadata (5.0 kB)
+Collecting pycodestyle<2.12.0,>=2.11.0 (from flake8==6.1.0->-r requirements.txt (line 17))
+  Downloading pycodestyle-2.11.1-py2.py3-none-any.whl.metadata (4.5 kB)
+Collecting pyflakes<3.2.0,>=3.1.0 (from flake8==6.1.0->-r requirements.txt (line 17))
+  Downloading pyflakes-3.1.0-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting platformdirs>=2.2.0 (from pylint==3.0.3->-r requirements.txt (line 18))
+  Downloading platformdirs-4.4.0-py3-none-any.whl.metadata (12 kB)
+Collecting astroid<=3.1.0-dev0,>=3.0.1 (from pylint==3.0.3->-r requirements.txt (line 18))
+  Downloading astroid-3.0.3-py3-none-any.whl.metadata (4.5 kB)
+Collecting isort!=5.13.0,<6,>=4.2.5 (from pylint==3.0.3->-r requirements.txt (line 18))
+  Downloading isort-5.13.2-py3-none-any.whl.metadata (12 kB)
+Collecting tomlkit>=0.10.1 (from pylint==3.0.3->-r requirements.txt (line 18))
+  Downloading tomlkit-0.15.1-py3-none-any.whl.metadata (3.3 kB)
+Collecting dill>=0.2 (from pylint==3.0.3->-r requirements.txt (line 18))
+  Downloading dill-0.4.1-py3-none-any.whl.metadata (10 kB)
+Collecting tomli>=1.1.0 (from pylint==3.0.3->-r requirements.txt (line 18))
+  Downloading tomli-2.4.1-py3-none-any.whl.metadata (10 kB)
+Collecting mypy-extensions>=0.4.3 (from black==23.12.1->-r requirements.txt (line 19))
+  Downloading mypy_extensions-1.1.0-py3-none-any.whl.metadata (1.1 kB)
+Collecting pathspec>=0.9.0 (from black==23.12.1->-r requirements.txt (line 19))
+  Downloading pathspec-1.1.1-py3-none-any.whl.metadata (14 kB)
+Collecting zipp>=3.20 (from importlib-metadata>=3.6.0->Flask==2.3.3->-r requirements.txt (line 1))
+  Downloading zipp-3.23.1-py3-none-any.whl.metadata (3.6 kB)
+Collecting six>=1.5 (from python-dateutil>=2.4->Faker==20.1.0->-r requirements.txt (line 12))
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Downloading flask-2.3.3-py3-none-any.whl (96 kB)
+Downloading werkzeug-2.3.7-py3-none-any.whl (242 kB)
+Downloading SQLAlchemy-2.0.23-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 1.5 MB/s  0:00:01
+Downloading flask_sqlalchemy-3.1.1-py3-none-any.whl (25 kB)
+Downloading flask_talisman-1.1.0-py2.py3-none-any.whl (18 kB)
+Downloading Flask_Cors-4.0.0-py2.py3-none-any.whl (14 kB)
+Downloading gunicorn-21.2.0-py3-none-any.whl (80 kB)
+Downloading coverage-7.3.2-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (227 kB)
+Downloading factory_boy-3.3.0-py2.py3-none-any.whl (36 kB)
+Downloading Faker-20.1.0-py3-none-any.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 3.2 MB/s  0:00:00
+Downloading nose-1.3.7-py3-none-any.whl (154 kB)
+Downloading pinocchio-0.4.3-py3-none-any.whl (12 kB)
+Downloading flake8-6.1.0-py2.py3-none-any.whl (58 kB)
+Downloading pylint-3.0.3-py3-none-any.whl (510 kB)
+Downloading black-23.12.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 1.0 MB/s  0:00:01
+Downloading astroid-3.0.3-py3-none-any.whl (275 kB)
+Downloading isort-5.13.2-py3-none-any.whl (92 kB)
+Downloading mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+Downloading pycodestyle-2.11.1-py2.py3-none-any.whl (31 kB)
+Downloading pyflakes-3.1.0-py2.py3-none-any.whl (62 kB)
+Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Downloading click-8.1.8-py3-none-any.whl (98 kB)
+Downloading dill-0.4.1-py3-none-any.whl (120 kB)
+Downloading greenlet-3.2.5-cp39-cp39-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (587 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 587.5/587.5 kB 986.8 kB/s  0:00:00
+Downloading importlib_metadata-8.7.1-py3-none-any.whl (27 kB)
+Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading markupsafe-3.0.3-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (20 kB)
+Downloading mypy_extensions-1.1.0-py3-none-any.whl (5.0 kB)
+Downloading pathspec-1.1.1-py3-none-any.whl (57 kB)
+Downloading platformdirs-4.4.0-py3-none-any.whl (18 kB)
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading tomli-2.4.1-py3-none-any.whl (14 kB)
+Downloading tomlkit-0.15.1-py3-none-any.whl (49 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading zipp-3.23.1-py3-none-any.whl (10 kB)
+Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Installing collected packages: nose, Flask-Talisman, zipp, typing-extensions, tomlkit, tomli, six, pyflakes, pycodestyle, platformdirs, pathspec, mypy-extensions, mccabe, MarkupSafe, itsdangerous, isort, gunicorn, greenlet, dill, coverage, colorama, click, blinker, Werkzeug, SQLAlchemy, python-dateutil, pinocchio, Jinja2, importlib-metadata, flake8, black, astroid, pylint, Flask, Faker, Flask-SQLAlchemy, Flask-Cors, factory-boy
+
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+Successfully installed Faker-20.1.0 Flask-2.3.3 Flask-Cors-4.0.0 Flask-SQLAlchemy-3.1.1 Flask-Talisman-1.1.0 Jinja2-3.1.6 MarkupSafe-3.0.3 SQLAlchemy-2.0.23 Werkzeug-2.3.7 astroid-3.0.3 black-23.12.1 blinker-1.9.0 click-8.1.8 colorama-0.4.6 coverage-7.3.2 dill-0.4.1 factory-boy-3.3.0 flake8-6.1.0 greenlet-3.2.5 gunicorn-21.2.0 importlib-metadata-8.7.1 isort-5.13.2 itsdangerous-2.2.0 mccabe-0.7.0 mypy-extensions-1.1.0 nose-1.3.7 pathspec-1.1.1 pinocchio-0.4.3 platformdirs-4.4.0 pycodestyle-2.11.1 pyflakes-3.1.0 pylint-3.0.3 python-dateutil-2.9.0.post0 six-1.17.0 tomli-2.4.1 tomlkit-0.15.1 typing-extensions-4.16.0 zipp-3.23.1
+
+===== Lint with flake8 =====
+##[group]Run # stop the build if there are Python syntax errors or undefined names
+[36;1m# stop the build if there are Python syntax errors or undefined names[0m
+[36;1mflake8 service --count --select=E9,F63,F7,F82 --show-source --statistics[0m
+[36;1m# exit-zero treats all errors as warnings[0m
+[36;1mflake8 service --count --max-complexity=10 --max-line-length=127 --statistics[0m
+shell: sh -e {0}
+##[endgroup]
+0
+0
+
+===== Run unit tests with nose =====
+##[group]Run nosetests -v --with-spec --spec-color --with-coverage --cover-package=service
+[36;1mnosetests -v --with-spec --spec-color --with-coverage --cover-package=service[0m
+shell: sh -e {0}
+##[endgroup]
+nose.config: INFO: Ignoring files matching ['^\\.', '^_', '^setup\\.py$']
+nose.plugins.cover: INFO: Coverage report will include only packages: ['service', 'service']
+
+Account Service Tests
+[1;32m- It should return CORS header[1;0m
+[1;32m- It should Create a new Account[1;0m
+[1;32m- It should not Create an Account with the wrong content type[1;0m
+[1;32m- It should Delete an Account[1;0m
+[1;32m- It should be healthy[1;0m
+[1;32m- It should return the index page[1;0m
+[1;32m- It should List all Accounts[1;0m
+[1;32m- It should Read an Account[1;0m
+[1;32m- It should not Read an Account that is not found[1;0m
+[1;32m- It should return security headers[1;0m
+[1;32m- It should Update an existing Account[1;0m
+[1;32m- It should not Update an Account that is not found[1;0m
+
+Name                               Stmts   Miss  Cover   Missing
+----------------------------------------------------------------
+service/__init__.py                   19      0   100%
+service/common/__init__.py             0      0   100%
+service/common/error_handlers.py      34     12    65%   31-33, 55-57, 70-72, 100-102
+service/common/log_handlers.py        11      1    91%   37
+service/common/status.py              45      0   100%
+service/models.py                     46      7    85%   33, 53-56, 76-77
+service/routes.py                     56      2    96%   130, 143
+----------------------------------------------------------------
+TOTAL                                211     22    90%
+----------------------------------------------------------------------
+Ran 12 tests in 1.071s
+
+OK
+
+
+===== Post Checkout =====
+Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Post job cleanup.
+##[command]/usr/bin/docker exec  790dd2435419a45d8385e6e3f03e60e09dd1c1a796907122552039bb480d1b7a sh -c "cat /etc/*release | grep ^ID"
+(node:98) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+===== Stop containers =====
+Stop and remove container: 35d5d9a300e14c84aa65f9ea59f11368_python39slim_4e756a
+##[command]/usr/bin/docker rm --force 790dd2435419a45d8385e6e3f03e60e09dd1c1a796907122552039bb480d1b7a
+790dd2435419a45d8385e6e3f03e60e09dd1c1a796907122552039bb480d1b7a
+Remove container network: github_network_810ae9134f2f4163ab60f6c83b748ed8
+##[command]/usr/bin/docker network rm github_network_810ae9134f2f4163ab60f6c83b748ed8
+github_network_810ae9134f2f4163ab60f6c83b748ed8
+
+===== Complete job =====
+Cleaning up orphan processes
+##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v3. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

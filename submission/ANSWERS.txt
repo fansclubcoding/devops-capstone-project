@@ -1,0 +1,187 @@
+================================================================
+JAWABAN FINAL PROJECT - IBM DEVOPS CAPSTONE (33 task / 50 poin)
+Repo   : https://github.com/fansclubcoding/devops-capstone-project
+Branch : main | Project: Customer Accounts Microservice
+Kanban : https://github.com/users/fansclubcoding/projects/1
+================================================================
+
+## Task 1 - URL README.md dengan project name
+https://github.com/fansclubcoding/devops-capstone-project/blob/main/README.md
+(Isi: judul "Customer Accounts Microservice", badge Build Status, project
+name, deskripsi service, tabel endpoint.)
+
+## Task 2 - URL user-story.md
+https://github.com/fansclubcoding/devops-capstone-project/blob/main/user-story.md
+(Isi: 10 user story lengkap dengan format As a / I need / So that,
+Acceptance Criteria, label, dan sprint: Sprint 1 = #1-#5, Sprint 2 = #6-#7,
+Sprint 3 = #8-#10.)
+
+## Task 3 - Screenshot board: 10 user stories di kolom New Issues
+File: planning-userstories-done.png
+(Projects v2 "DevOps Capstone", Board view, 7 kolom, 10 kartu di New Issues.)
+
+## Task 4 - Screenshot board: stories dipindah ke Ice Box
+File: planning-productbacklog-done.png
+(Semua 10 kartu di kolom Ice Box.)
+
+## Task 5 - Screenshot board: kartu menampilkan label
+File: planning-labels-done.png
+(Semua 10 kartu di Product Backlog; label `technical debt` (merah) dan
+`enhancement` (biru) terlihat pada kartu.)
+
+## Task 6 - Screenshot board: Sprint Backlog dengan estimate
+File: planning-kanban-done.png
+(Stories #1-#5 di Sprint Backlog dengan Estimate 3/3/2/3/2 dan Sprint 1;
+stories #6-#10 tetap di Product Backlog.)
+
+## Task 7 - URL setup.cfg
+https://github.com/fansclubcoding/devops-capstone-project/blob/main/setup.cfg
+(Isi: konfigurasi [nosetests] verbosity=2 with-spec spec-color with-coverage
+cover-package=service, [coverage:report], [flake8] per-file-ignores,
+[pylint].)
+
+## Task 8 - Screenshot board: story 1 Done
+File: rest-techdebt-done.png
+(Story #1 "Setting up the development environment" pindah ke Done.)
+
+## Task 9 - Screenshot board: story 2 Done (Read)
+File: read-accounts.png
+(Story #2 "Read an account from the service" pindah ke Done.)
+
+## Task 10 - Screenshot board: story 3 Done (List)
+File: list-accounts.png
+(Story #3 "List all accounts in the service" pindah ke Done.)
+
+## Task 11 - Screenshot board: story 4 Done (Update)
+File: update-accounts.png
+(Story #4 "Update an account in the service" pindah ke Done.)
+
+## Task 12 - Screenshot board: story 5 Done (Delete)
+File: delete-accounts.png
+(Story #5 "Delete an account from the service" pindah ke Done.)
+
+## Task 13 - cURL: create account (POST)
+File: rest-create-done
+(curl -X POST /accounts, JSON John Doe -> 201 Created, id 1.)
+
+## Task 14 - cURL: list accounts (GET)
+File: rest-list-done
+(curl GET /accounts -> JSON berisi John (id 1) dan Jane (id 2).)
+
+## Task 15 - cURL: read account (GET by id)
+File: rest-read-done
+(curl GET /accounts/1 -> JSON John Doe id 1.)
+
+## Task 16 - cURL: update account (PUT)
+File: rest-update-done
+(curl PUT /accounts/1, address 457 New Ave / phone 555-4321 -> JSON updated.)
+
+## Task 17 - cURL: delete account (DELETE)
+File: rest-delete-done
+(curl -i -X DELETE /accounts/2 -> HTTP/1.1 204 NO CONTENT.)
+
+## Task 18 - Screenshot board: perencanaan Sprint 2
+File: sprint2-plan.png
+(Stories #6,#7 di Sprint Backlog, Estimate 8 dan 5, Sprint = Sprint 2.)
+
+## Task 19 - Text output GitHub Actions sukses
+File: ci-workflow-done
+(Log lengkap workflow "CI Build" run 35450118912: Checkout -> Install
+dependencies -> Lint with flake8 -> Run unit tests with nose.
+Ran 12 tests, coverage TOTAL 90%, semua step hijau.)
+
+## Task 20 - Screenshot board: story 6 Done (CI)
+File: ci-kanban-done.png
+(Story #6 "Need the ability to automate continuous integration checks"
+pindah ke Done.)
+
+## Task 21 - URL workflow CI (.github/workflows/ci-build.yaml)
+https://github.com/fansclubcoding/devops-capstone-project/blob/main/.github/workflows/ci-build.yaml
+(Job build runs-on [self-hosted], container python:3.9-slim; step Checkout,
+Install dependencies, Lint with flake8 (2 command), Run unit tests with nose.)
+Salin snippet step bila diminta teks:
+
+  - name: Lint with flake8
+    run: |
+      flake8 service --count --select=E9,F63,F7,F82 --show-source --statistics
+      flake8 service --count --max-complexity=10 --max-line-length=127 --statistics
+
+  - name: Run unit tests with nose
+    run: |
+      nosetests -v --with-spec --spec-color --with-coverage --cover-package=service
+
+## Task 22 - URL service/__init__.py
+https://github.com/fansclubcoding/devops-capstone-project/blob/main/service/__init__.py
+(Isi: create_app, init_db, CORS(app), Talisman dengan security headers,
+log banner S E R V I C E   R U N N I N G, port 8080.)
+
+## Task 23 - Text output security headers + CORS tests
+File: security-headers-done
+(Hasil nosetests fresh di container python:3.9-slim: 12 tests OK termasuk
+"It should return security headers" dan "It should return CORS header",
+tabel coverage 90%.)
+
+## Task 24 - Screenshot board: story 7 Done (security)
+File: security-kanban-done.png
+(Story #7 "Need to add security headers and CORS policies" pindah ke Done.)
+
+## Task 25 - Screenshot board: perencanaan Sprint 3
+File: sprint3-plan.png
+(Stories #8,#9,#10 di Sprint Backlog, Estimate 5/8/8, Sprint = Sprint 3.)
+
+## Task 26 - Text output: curl root service di Kubernetes
+File: kube-app-output
+(kubectl port-forward svc/accounts 18080:8080 + curl -> JSON root:
+"Customer Account REST API Service", version, paths /accounts dan /health.)
+
+## Task 27 - Screenshot board: story 8 Done (Docker)
+File: kube-docker-done.png
+(Story #8 "Containerize your microservice using Docker" pindah ke Done.)
+
+## Task 28 - Screenshot board: story 9 Done (Kubernetes)
+File: kube-kubernetes-done.png
+(Story #9 "Deploy your Docker image to Kubernetes" pindah ke Done.)
+
+## Task 29 - URL Dockerfile
+https://github.com/fansclubcoding/devops-capstone-project/blob/main/Dockerfile
+(Isi: FROM python:3.9-slim, WORKDIR /app, pip install requirements,
+COPY service/, EXPOSE 8080, CMD gunicorn --bind=0.0.0.0:8080 service:app.)
+
+## Task 30 - Text output: docker images (image sudah di-push ke registry)
+File: kube-images
+(Output `docker images` menampilkan `localhost:5000/accounts:latest` dan
+`accounts:latest` — hasil docker build + push ke registry lokal :5000.)
+
+## Task 31 - Text output: kubectl get deployments/replicasets/pods/services
+File: kube-deploy-accounts
+(deployment accounts 2/2 READY, replicaset accounts-8bc4b9b7 2/2, 2 pod
+Running, service accounts ClusterIP port 8080.)
+
+## Task 32 - Text output: pipelinerun log lengkap
+File: pipelinerun.txt
+(Log lengkap `tkn pipelinerun logs cd-pipeline-run-8qfrq` (status
+Succeeded, 8m6s): init (clean workspace) -> clone (git-clone dari GitHub)
+-> lint (flake8 clean) -> tests (Ran 12 tests, OK) -> build (buildah bud +
+push ke 192.168.44.131:5000/accounts:latest, Writing manifest) -> deploy
+(kubectl apply deployment.yaml, deployment "accounts" successfully rolled
+out).)
+
+## Task 33 - Screenshot board: story 10 Done (CD pipeline)
+File: cd-pipeline-done.png
+(Story #10 "Create a CD pipeline to automate deployment to Kubernetes"
+pindah ke Done; seluruh 10 story selesai di kolom Done.)
+
+## CATATAN WORKFLOW
+runs-on: [self-hosted] dipakai karena Actions hosted runner diblokir
+billing pada akun ini; job tetap berjalan di dalam container lab-exact
+python:3.9-slim dan semua step sama persis dengan teks lab. Run hijau
+terverifikasi: run 35450118912, 12/12 unit test OK, flake8 0 temuan,
+coverage 90%.
+
+## CATATAN TEKTON
+Pipeline dijalankan pada cluster k3s lokal (Tekton Pipelines v0.65.0,
+tkn v0.46.0): pipelinerun cd-pipeline-run-8qfrq -> Succeeded (init, clone,
+flake8, nose, buildah, deploy semua hijau). Image di-push ke registry
+lokal (192.168.44.131:5000/accounts:latest) dan dideploy ke Kubernetes
+(2/2 replicas). Image buildah/deploy memakai ClusterTask dari tektoncd
+catalog (git-clone, buildah) + Task lokal (flake8, nose, deploy).

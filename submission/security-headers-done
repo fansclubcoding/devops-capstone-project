@@ -1,0 +1,33 @@
+nose.config: INFO: Ignoring files matching ['^\\.', '^_', '^setup\\.py$']
+nose.plugins.cover: INFO: Coverage report will include only packages: ['service', 'service']
+
+Account Service Tests
+[1;32m- It should return CORS header[1;0m
+[1;32m- It should Create a new Account[1;0m
+[1;32m- It should not Create an Account with the wrong content type[1;0m
+[1;32m- It should Delete an Account[1;0m
+[1;32m- It should be healthy[1;0m
+[1;32m- It should return the index page[1;0m
+[1;32m- It should List all Accounts[1;0m
+[1;32m- It should Read an Account[1;0m
+[1;32m- It should not Read an Account that is not found[1;0m
+[1;32m- It should return security headers[1;0m
+[1;32m- It should Update an existing Account[1;0m
+[1;32m- It should not Update an Account that is not found[1;0m
+
+Name                               Stmts   Miss  Cover   Missing
+----------------------------------------------------------------
+service/__init__.py                   19      0   100%
+service/common/__init__.py             0      0   100%
+service/common/error_handlers.py      34     12    65%   31-33, 55-57, 70-72, 100-102
+service/common/log_handlers.py        11      1    91%   37
+service/common/status.py              45      0   100%
+service/models.py                     46      7    85%   33, 53-56, 76-77
+service/routes.py                     56      2    96%   130, 143
+----------------------------------------------------------------
+TOTAL                                211     22    90%
+----------------------------------------------------------------------
+Ran 12 tests in 0.915s
+
+OK
+

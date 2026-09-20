@@ -1,0 +1,8 @@
+{
+  "name": "Customer Account REST API Service",
+  "paths": {
+    "accounts": "/accounts",
+    "health": "/health"
+  },
+  "version": "1.0"
+}
